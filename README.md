@@ -83,7 +83,7 @@ Because the sliderslide follows the greenline, silent sliderslides are only need
 ```toml
 [input]
 beatmap = "C:/…/<map> [mania].osu"
-targets = ["C:/…/map [TAKEME].osu"]  # optional: silent sliderslides and the check in verify
+targets = ["C:/…/<map> [Insane].osu"]  # optional: silent sliderslides and the check in verify
 
 [output]
 dir = "export/mymap"           # never the Songs folder itself
@@ -191,7 +191,7 @@ Many players (`IgnoreBeatmapSamples`) only hear their skin samples: the bank's h
 python -m unittest discover tests
 ```
 
-## Building the release
+## Building
 
 ```bash
 python build.py                # both variants
@@ -199,7 +199,13 @@ python build.py --plain        # small one, needs ffmpeg on PATH
 python build.py --with-ffmpeg  # self-contained
 ```
 
-Produces `dist/hitsoundConvPro-<version>-win64[-with-ffmpeg]/` (a folder with `hitsoundConvPro.exe` plus its files) and the matching `.zip` for a GitHub release. Double-clicking the exe opens the GUI; with arguments it behaves like the CLI.
+Produces `dist/hitsoundConvPro-<version>-<platform>[-with-ffmpeg]/` - a folder with the executable and
+its files - plus an archive: `.zip` on Windows, `.tar.gz` elsewhere, because zip does not keep the
+executable bit. Starting it without arguments opens the GUI, with arguments it behaves like the CLI.
+
+PyInstaller cannot cross-compile, so each platform builds on its own machine.
+[.github/workflows/release.yml](.github/workflows/release.yml) does that on GitHub for Windows and
+Linux and attaches the archives to a release when a `v*` tag is pushed.
 
 ## Limits / open points
 
