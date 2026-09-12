@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hitsoundConvPro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+      <h1>hitsoundConvPro</h1>
+      <span id="map" class="muted"></span>
+    </div>
+    <div class="actions">
+      <div class="mode lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
+      <span id="project-actions" class="actions" hidden>
+        <button type="button" id="switch"></button>
+        <span class="mode" role="group" aria-label="Mode">
+          <button type="button" data-mode="edit">EDIT</button>
+          <button type="button" data-mode="listen">LISTEN</button>
+        </span>
+        <button type="button" id="convert" class="primary"></button>
+      </span>
+    </div>
+  </header>
+  <p id="status" role="status"></p>
+
+  <section class="panel" id="start-panel" hidden>
+    <h2 id="t-start"></h2>
+    <p class="muted" id="t-start-intro"></p>
+    <ul id="project-list"></ul>
+    <form id="open-form">
+      <label class="field">
+        <span class="label" id="t-open-label"></span>
+        <input type="text" id="open-path" spellcheck="false"
+               placeholder="C:\Users\...\osu!\Songs\<mapset>\<map> [HITME].osu">
+      </label>
+      <button type="submit" class="primary" id="t-open-button"></button>
+    </form>
+    <p class="muted" id="start-hint"></p>
+  </section>
+
+  <main hidden>
+    <section class="panel" id="pool-panel">
+      <h2 id="t-pool"></h2>
+      <p class="muted" id="pool-hint"></p>
+      <div id="pool" class="drop pool"></div>
+    </section>
+
+    <section class="panel" id="board-panel">
+      <h2 id="t-slots"></h2>
+      <p class="muted" id="t-slots-hint"></p>
+      <div id="board"></div>
+    </section>
+
+    <aside class="panel" id="side-panel">
+      <h2 id="t-details"></h2>
+      <div id="detail"></div>
+      <h2 id="t-settings"></h2>
+      <div id="settings"></div>
+    </aside>
+  </main>
+
+  <section class="panel" id="result-panel" hidden>
+    <h2 id="t-result"></h2>
+    <div id="stats"></div>
+    <ul id="messages"></ul>
+    <div id="indices"></div>
+  </section>
+
+  <audio id="player" preload="none"></audio>
+  <script src="app.js"></script>
+</body>
+</html>

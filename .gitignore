@@ -1,0 +1,31 @@
+# Build output and caches
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+*.tmp
+
+# Local tooling state
+.claude/
+.vscode/
+.idea/
+
+# Personal projects: configs point at local Songs folders
+configs/*.toml
+!configs/example.toml
+
+# Generated output, backups and crash reports
+export/
+configs/export/
+_mapset_backup/
+crash.log
+installed.json
+
+# Beatmaps and audio belong to the mapper, not to the tool
+*.osu
+*.osz
+*.mp3
+*.ogg
+*.wav
+!sliderslidermute.wav

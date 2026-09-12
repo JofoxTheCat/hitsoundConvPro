@@ -1,0 +1,55 @@
+# hitsoundConvPro project config - copy this, or let "init-config" write one for your map.
+# Paths are absolute here; relative paths are resolved next to this file.
+
+[input]
+beatmap = "C:/Users/you/AppData/Local/osu!/Songs/<mapset>/<map> [mania hitsounds].osu"
+# sample_dir = "..."   # default: the folder of the beatmap
+# std diffs the hitsounds are for (optional): silent sliderslides and the check in verify
+targets = []
+
+[output]
+dir = "export/example"   # export folder, never the Songs folder itself
+version = "hitsounds"
+first_index = 2          # index 1 = the unnumbered files (soft-hitclap.wav), never touched
+last_index = 100         # editor limit
+format = "auto"          # per file: ogg when it is smaller and close enough, else wav
+ogg_quality = "auto"     # smallest quality per file that meets the target below, or 0-10
+ogg_target_db = -28.0    # how close an encoded file has to stay to the uncompressed mix
+mute_slider_slide = true
+slider_slide_file = "sliderslidermute.wav"
+
+[mix]
+group_tolerance_ms = 2   # samples this close together count as one timestamp
+gain_step_db = 0.1
+merge_tolerance_db = 0.5 # contents whose gains differ by less than this share one file
+pack_attempts = 200      # packing orders to try; more can mean fewer files, never changes the sound
+bank_mode = "prefer"     # prefer: role bank unless another bank saves an index | strict
+volume_mode = "relative" # relative | absolute | auto | grid
+on_clip = "roles"        # roles | limit | spread
+duplicates = "loudest"   # loudest | sum
+silent_bank = "normal"   # must differ from fill.bank
+fallback_slot = "soft-hitwhistle"
+
+[fill]
+# What std objects without a mania sound play (e.g. slider heads between two mania notes).
+sample = "auto"          # auto = most frequent hitnormal sample | file name | "none" = silent
+bank = "soft"
+gain_db = 0.0
+
+# Roles: the first matching entry wins.
+[[route]]
+match = "kick*.wav"
+slot = "normal-hitnormal"
+priority = 100
+lock = true              # never move to another bank
+anchor = true            # kick focus: everything else on that timestamp is mixed into this slot
+
+[[route]]
+match = "snare*.wav"
+slot = "soft-hitclap"
+priority = 80
+
+[[route]]
+match = "hat*.wav"
+slot = "soft-hitwhistle"
+priority = 40
