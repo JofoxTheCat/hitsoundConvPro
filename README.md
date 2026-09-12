@@ -11,7 +11,7 @@ The tool spreads the mania samples over these slots following a **role config** 
 
 ## Download
 
-Grab a release zip, **unpack it**, then double-click `Start GUI.bat` (keeps the window open and shows errors)
+[Latest release](https://github.com/JofoxTheCat/hitsoundConvPro/releases/latest) - grab a zip, **unpack it**, then double-click `Start GUI.bat` (keeps the window open and shows errors)
 or `hitsoundConvPro.exe`. Running the .exe from inside the zip closes immediately: Windows does not extract
 the `_internal` folder next to it. If a window still disappears, `crash.log` next to the .exe holds the reason.
 
