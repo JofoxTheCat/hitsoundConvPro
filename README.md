@@ -11,12 +11,17 @@ The tool spreads the mania samples over these slots following a **role config** 
 
 ## Download
 
-[Latest release](https://github.com/JofoxTheCat/hitsoundConvPro/releases/latest) - grab a zip, **unpack it**, then double-click `Start GUI.bat` (keeps the window open and shows errors)
-or `hitsoundConvPro.exe`. Running the .exe from inside the zip closes immediately: Windows does not extract
-the `_internal` folder next to it. If a window still disappears, `crash.log` next to the .exe holds the reason.
+[Latest release](https://github.com/JofoxTheCat/hitsoundConvPro/releases/latest) - unpack the archive
+first, then start it:
 
-- `hitsoundConvPro-<version>-win64.zip` needs ffmpeg on PATH
-- `hitsoundConvPro-<version>-win64-with-ffmpeg.zip` brings its own ffmpeg
+| Archive | Start it with | ffmpeg |
+|---|---|---|
+| `hitsoundConvPro-<version>-win64.zip` | `Start GUI.bat` or `hitsoundConvPro.exe` | has to be on PATH |
+| `hitsoundConvPro-<version>-win64-with-ffmpeg.zip` | same | included |
+| `hitsoundConvPro-<version>-linux64.tar.gz` | `./start-gui.sh` or `./hitsoundConvPro` | from your package manager, e.g. `apt install ffmpeg` |
+
+Running the executable from inside the archive closes it immediately, because the `_internal` folder
+next to it is missing. If a window still disappears, `crash.log` next to the executable holds the reason.
 
 ## Requirements
 
