@@ -41,8 +41,8 @@ Every change is written to the config right away. The GUI writes one explicit ro
 ## Command line
 
 ```bash
-python -m hitsoundconv analyze "…\Songs\<mapset>\<map> [HITME].osu"   # samples, volumes, combinations
-python -m hitsoundconv init-config "…\<map> [HITME].osu"              # config with guessed roles
+python -m hitsoundconv analyze "…\Songs\<mapset>\<map> [mania].osu"   # samples, volumes, combinations
+python -m hitsoundconv init-config "…\<map> [mania].osu"              # config with guessed roles
 python -m hitsoundconv convert configs/mymap.toml --dry-run           # report only
 python -m hitsoundconv convert configs/mymap.toml                     # write the export
 python -m hitsoundconv verify configs/mymap.toml --skin "…\osu!\Skins\<skin>" --music
@@ -82,12 +82,12 @@ Because the sliderslide follows the greenline, silent sliderslides are only need
 
 ```toml
 [input]
-beatmap = "C:/…/map [HITME].osu"
+beatmap = "C:/…/<map> [mania].osu"
 targets = ["C:/…/map [TAKEME].osu"]  # optional: silent sliderslides and the check in verify
 
 [output]
-dir = "export/HITME"           # never the Songs folder itself
-version = "HITME std hitsounds"
+dir = "export/mymap"           # never the Songs folder itself
+version = "std hitsounds"
 first_index = 2                # index 1 = the unnumbered files, never touched
 last_index = 100
 format = "auto"                # per file: ogg when it is smaller and close enough, else wav
